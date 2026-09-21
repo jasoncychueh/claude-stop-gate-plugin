@@ -1,0 +1,20 @@
+{
+  "name": "claude-stop-gate-plugin",
+  "description": "Stop-gate plugin for Claude Code",
+  "owner": {
+    "name": "Jason Chueh",
+    "email": "jasoncychueh@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "stop-gate",
+      "description": "A self-check gate at the moment the agent tries to stop. A Stop hook blocks once and injects a short prompt: is the work really done (tests green, nothing left running, nothing promised but skipped), or — when the turn ends on a question — is that question really worth handing back. Opt-in per session with /stop-gate:on; calls no model.",
+      "version": "1.0.0",
+      "source": "./",
+      "author": {
+        "name": "Jason Chueh",
+        "email": "jasoncychueh@gmail.com"
+      }
+    }
+  ]
+}

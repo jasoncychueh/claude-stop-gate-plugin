@@ -1,0 +1,9 @@
+{
+  "name": "stop-gate",
+  "version": "1.0.0",
+  "description": "A self-check gate at the moment the agent tries to stop. A Stop hook blocks once and injects a short prompt: is the work really done (tests green, nothing left running, nothing promised but skipped), or — when the turn ends on a question — is that question really worth handing back. Opt-in per session with /stop-gate:on; calls no model.",
+  "author": {
+    "name": "Jason Chueh",
+    "email": "jasoncychueh@gmail.com"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "description": "One Stop hook (stop-gate.js). When the main agent is about to hand control back, it blocks once and injects a self-check prompt — a FINISH prompt (is the work really done, tests green, nothing left running) or, when the last message ends with a question, a QUESTION prompt (is this question really worth asking). Opt-in per session via markers under the plugin data directory (passed as ${CLAUDE_PLUGIN_DATA}); with no marker it exits before parsing stdin. Passes silently when already blocked this turn (stop_hook_active), when background work or a scheduled wake-up is in flight (background_tasks / session_crons), or when the turn used no tools. Calls no model, fail-open on any error.",
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/stop-gate.js\" \"${CLAUDE_PLUGIN_DATA}\"",
+            "timeout": 10,
+            "statusMessage": "Checking whether it's really time to stop..."
+          }
+        ]
+      }
+    ]
+  }
+}
